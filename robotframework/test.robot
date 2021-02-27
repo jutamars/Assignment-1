@@ -1,11 +1,12 @@
 *** Settings ***
-Library    SeleniumLibrary
+Documentation    A test suite containing tests related to search some keywords on Google search
+Library          Selenium2Library
 *** Variables ***
 ${URL}                      https://www.google.co.th
 ${Browser}                  chrome
 ${DELAY}                    0
 ${SearchKeyword}            BlackPink
-${PageContainKeyword}       BP
+${PageContainKeyword}       blackpink
 *** Keywords ***
 Open Google Search Page
     open browser              ${URL}    ${Browser}
