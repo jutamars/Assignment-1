@@ -1,17 +1,32 @@
+*** Settings ***
+Library    SeleniumLibrary
+*** Variables ***
+${URL}                      https://www.google.co.th
+${Browser}                  chrome
+${DELAY}                    0
+${SearchKeyword}            BlackPink
+${PageContainKeyword}       BP
+*** Keywords ***
+Open Google Search Page
+    open browser              ${URL}    ${Browser}
+    Maximize Browser Window
+    Set Selenium Speed        ${DELAY}
+
+Search on Google
+    input text      lst-ib      ${SearchKeyword}
+    press key       lst-ib      \\13 # ASCII code for enter key 
+
+Wait for Search Results
+    wait until page contains    ${PageContainKeyword}
+
+Close Browser After Finish
+    close browser
+
+
+
 *** Test Cases ***
-Test Login Facebook Success Case
-	Open Browesr	https://www.facebook.com	gc
-	Input Text	id=email  ufoyy3@hotmail.com
-	Input Text	id=pass	ufoyy3
-	Click Element	id=loginbutton
-	wait Util Page Contains	Maz Ho
-	Capture Page Screenshot	${directory-img}1.pag
-	Close Browser
-Test Login Facebook Fail Case
-	Open Browesr	https://www.facebook.com	gc
-	Input Text	id=email  ufoyy3
-	Input Text	id=pass	ufoyy4
-	Click Element	id=loginbutton
-	wait Util Page Contains	เข้าสู่ระบบ Facebook
-	Capture Page Screenshot	${directory-img}2.pag
-	Close Browser
+Test Case: Search some keywords on Google search
+    Open Google Search Page
+    Search on Google
+    Wait for Search Results
+    Close Browser After Finish
