@@ -1,0 +1,11 @@
+*** Settings ***
+Library    SeleniumLibrary
+*** Variables ***
+${URL}    https://www.google.com/
+${BROWSER}    chrome
+${EMPTY}
+*** Test Cases ***
+Open Lucky Draw Registration Page
+    Open Browser    ${URL}    ${BROWSER}
+    Location Should Be  ${URL}
+    Close Browser
