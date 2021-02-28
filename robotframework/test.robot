@@ -4,5 +4,5 @@ Library           SeleniumLibrary
 ${HOMEPAGE} 	http://facebook.com
 ${BROWSER}   	chrome
 *** Test Cases ***
-Open Browser Registration
+Open Browser Facebook
 	Open Browser    ${HOMEPAGE}    ${BROWSER}
